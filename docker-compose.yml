@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: simple_pm_web
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+    volumes:
+      - .:/simple_pm_web/
+    ports:
+      - 3000:3000
+    command: ash /simple_pm_web/rundevserver.sh
+    tty: true
