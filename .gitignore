@@ -2,6 +2,10 @@
 
 /dist
 
+# einvonrment
+.env.development
+.env.production
+
 # dependencies
 /node_modules
 /.pnp
