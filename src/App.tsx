@@ -1,6 +1,5 @@
 import React from 'react';
 import Todo from 'components/Todo'
-import { hot } from 'react-hot-loader'
 
 function App() {
   const todo = [
@@ -13,4 +12,4 @@ function App() {
   )
 }
 
-export default hot(module)(App);
+export default App;

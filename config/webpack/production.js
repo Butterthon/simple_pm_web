@@ -1,5 +1,7 @@
+const path = require('path');
 const { merge } = require('webpack-merge')
-const base = require('./base')
+const DotenvPlugin = require('dotenv-webpack')
+const baseConfig = require('./base')
 
 module.exports = merge(baseConfig, {
     mode: 'production',

@@ -8,8 +8,8 @@ module.exports = merge(baseConfig, {
   mode: 'development',
   entry: [
     'react-hot-loader/patch',
-    "webpack-dev-server/client?http://0.0.0.0:3000",
-    "webpack/hot/only-dev-server",
+    'webpack-dev-server/client?http://0.0.0.0:3000',
+    'webpack/hot/only-dev-server',
   ],
   devtool: 'inline-source-map',
   devServer: {
