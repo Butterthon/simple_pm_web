@@ -3,8 +3,10 @@ const baseDir = path.resolve(__dirname, '../../')
 const srcDir = path.resolve(baseDir, 'src')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+
+const isEnvDevelopment = process.env.NODE_ENV === 'development'
+const isEnvProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   context: srcDir,
@@ -21,8 +23,8 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               plugins: [
-                'react-refresh/babel',
-              ],
+                isEnvDevelopment && 'react-refresh/babel',
+              ].filter(Boolean),
               presets: [
                 '@babel/preset-typescript',
               ],
@@ -60,17 +62,9 @@ module.exports = {
       }
     }),
 
-    // ホットリロード
-    new ReactRefreshWebpackPlugin(),
-
     // build時、distにindex.html出力
     new HtmlWebpackPlugin({
       template: path.resolve(baseDir, 'public/index.html')
     }),
-  ],
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, '../../dist'),
-    publicPath: '/',
-  },
+  ]
 };

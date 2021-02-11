@@ -35,8 +35,8 @@
     "webpack-merge": "^5.7.3"
   },
   "scripts": {
-    "start": "webpack serve --config config/webpack/development.js",
-    "build": "webpack --config config/webpack/production.js",
+    "start": "NODE_ENV=development webpack serve --config config/webpack/development.js",
+    "build": "NODE_ENV=production webpack --config config/webpack/production.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
